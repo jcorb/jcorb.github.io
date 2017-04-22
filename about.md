@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # About me
 
 I am a Research Scientist in the Climate Science Branch at NASA Langley, where I have been since October 2010.  Mostly I have been working on the [CERES](https://ceres.larc.nasa.gov) project.  My role has been to develop algorithms that convert the satellite measured radiance into a scientifcally (and increasingly, industrially) useful irradiance, focusing on the polar regions.  I have also been invloved in other areas of the satellite data process, including calibration and validation of the radiances, validation of the irradiances, and development of temporally and spatially averaged datasets.  I have also worked extensively with data from imager satellites such as MODIS and MISR, and some of the passive microwave satellites.
