@@ -5,7 +5,7 @@ I am a Research Scientist in the Climate Science Branch at NASA Langley, where I
 Some key skills I think you should know about:
 
 * Data Analysis - Experience collecting, visualizing and analyzing a variety of large datasets.
-* Statistics - Experience applying statistacal methods to large and small datasets, including regression, machine learning, and Bayesian statistics.
+* Statistics - Experience applying statistical methods to large and small datasets, including regression, machine learning, clustering, image analysis, and Bayesian statistics.
 * Physics - Knowledge of the physics related to remote sensing.
 * Programming - High level of proficiency in Python and Fortran, as well as R and Matlab.
 * Communicating technical information - Track record of presenting results at conferences worldwide.
