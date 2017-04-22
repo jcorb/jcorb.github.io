@@ -11,7 +11,7 @@ Some key skills I think you should know about:
 * Communicating technical information - Track record of presenting results at conferences worldwide.
 * Project management - Experience planning and executing data analysis projects.
 
-You can find out more about my work experience, education, and publications.
+You can find out more about my [work experience](./work_experience.md), [education](./education.md), and [publications](./publications.md).
 
 If you would like a PDF of my CV please contact me through gmail at joseph.corbett.
 
