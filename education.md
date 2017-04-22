@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Education
 ## MSc (Hons); University of Auckland, 2010.
 I graduated with a Master of Science with First Class Honours. My thesis involved researching and developing a method of estimating albedo for NASA’s Multi-angle Imaging Spectrometer satellite instrument.
