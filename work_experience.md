@@ -1,3 +1,6 @@
+---
+layout: default
+---
 # Work Experience
 ## Staff Research Scientist, SSAI/NASA Langley Research Center — October 2010 - present
 
