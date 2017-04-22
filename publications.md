@@ -1,3 +1,7 @@
+---
+layout: default
+---
+
 # Publications
 Corbett, J. G. & Loeb, N. G. On the Relative Stability of CERES Reflected Shortwave and MISR and MODIS Visible Radiance Measurements during the Terra Satellite Mission. J. Geophys. Res. (2015). doi:doi:10.1002/2015JD023484
 
