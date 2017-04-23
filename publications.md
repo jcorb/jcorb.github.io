@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# Publications
+# [Work Experience](./work_experience.md) / [Education](./education.md) / Publications
 Corbett, J. G. & Loeb, N. G. On the Relative Stability of CERES Reflected Shortwave and MISR and MODIS Visible Radiance Measurements during the Terra Satellite Mission. J. Geophys. Res. (2015). doi:doi:10.1002/2015JD023484
 
 Corbett, J. & Su, W. Accounting for the effects of sastrugi in the CERES clear-sky Antarctic shortwave angular distribution models. Atmos. Meas. Tech. 8, 3163–3175 (2015).
