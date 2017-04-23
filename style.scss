@@ -49,8 +49,9 @@ h1 {
   color: $h1-color;
   a {
     color: lighten($h1-color,40);
+	  &:visited, &:active { color: lighten($h1-color,40); }
   }
-}
+}     
 
 h2 {
   font-size: 24px;
