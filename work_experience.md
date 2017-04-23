@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-# Work Experience / [Education](./education.md) / [Publications](./publications.md)
+# Work Experience / [Education](education.md) / [Publications](publications.md)
 ## Staff Research Scientist, SSAI/NASA Langley Research Center — October 2010 - present
 
 For the past six and a half years I have been part of an algorithm development team for NASA's Clouds and the Earth’s Radiant Energy System satellite-based Earth observation instruments.  
