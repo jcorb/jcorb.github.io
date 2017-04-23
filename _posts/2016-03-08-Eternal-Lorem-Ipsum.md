@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Hello world '
-author: Author Name
+author: jcorb
 published: true
 ---
 
