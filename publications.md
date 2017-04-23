@@ -1,5 +1,6 @@
 ---
 layout: default
+published: true
 ---
 
 # [Work Experience](work_experience.md) / [Education](education.md) / Publications
@@ -15,7 +16,7 @@ Corbett, J. G., Su, W. & Loeb, N. G. Observed effects of sastrugi on CERES topâ€
 
 *If you would like a copy of any of my publications please email me.*
 
-# Conference Presentations
+## Conference Presentations
 Corbett, J., A. Bucholtz, S. Kato, W. Smith, and F. Rose, Validating CERES Surface Irradiance in the Arctic with Airborne Radiometer Measurements from the ARISE Campaign, American Geophysical Union, 16th Dec 2016, San Francisco.  
 
 Corbett, J., A. Bucholtz, S. Kato, W. Smith, F. Rose, Validating CERES radiative fluxes in the Arctic with airborne radiative flux measurements from the ARISE campaign. International Radiation Symposoium, April 17th-21st 2016, Auckland, New Zealand
