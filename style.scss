@@ -49,7 +49,7 @@ h1 {
   color: $h1-color;
   a {
     color: lighten($h1-color,40);
-	  &:visited, &:active { color: lighten($h1-color,40); }
+	   &:hover &:active { color: lighten($h1-color,40); }
   }
 }     
 
