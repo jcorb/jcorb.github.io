@@ -48,7 +48,7 @@ h1 {
   font-size: 30px;
   color: $h1-color;
   a {
-    color: inherit;
+    color: lighten($h1-color,40);
   }
 }
 
