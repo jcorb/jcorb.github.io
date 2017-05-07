@@ -1,5 +1,8 @@
 ---
-published: false
+layout: post
+title: 'Intro to Computer Vision'
+author: jcorb
+published: true
 ---
 ## Intro to Computer Vision
 
