@@ -29,9 +29,9 @@
  
  .post-heading {
         a {
-         color: $hl-color;
+         color: $white;
          &:hover{
-           color: darken($hl-color,20);
+           color: darken($white,20);
          }
      }
  }
@@ -94,16 +94,16 @@ button.button-primary:focus {
 }
 
 .intro-header .post-heading {
-  padding: 10px 0 10px;
+  padding: 5px 0 5px;
   color: $white;
   
 }
 
 .intro-header .post-heading h1 {
     color:$white;
-    font-size: 36px;
+    font-size: 24px;
     line-height: 1.5;
-    font-family:$raleway ;
+    font-family:$helveticaNeue ;
 }
 
 @media only screen and (min-width: 768px) {
