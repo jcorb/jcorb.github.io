@@ -44,7 +44,7 @@ for i in np.random.randint(0, 3000, 25):
 The network I am using for this example consists of 3 layers - an input layer, an output layer, and one hidden layer.  The input layer consists of 400 input nodes (each pixel in an image, and there is actually 401 inputs when the bias, `x_0=1`, term is included).  I'm using 25 nodes (or neurons) in the hidden layer (this also gets a bias term added, `a_0^(2)=1`), and the output layer consists of 10 nodes - one for each of the classes.
 
 ### Feed-forward
-The feed-forward calculation takes the inputs values, and applies the activation function (in this case the sigmoid) using the provided weights (`Theta1` and `Theta2`).  These values are then "fed-forward", used as the inputs to the next activation layer. This is implemented in the `feedforward()` function below.
+The feed-forward calculation takes the inputs values, and applies the activation function (in this case the sigmoid) using the provided weights (`Theta1` and `Theta2`).  These values are then "fed-forward" - used as the inputs to the next activation layer. This is implemented in the `feedforward()` function below.
 
 
 ```python
