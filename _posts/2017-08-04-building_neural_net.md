@@ -130,8 +130,8 @@ def nn_costfunction(x, *args):
         inputs: 
             x: vector containing weights
             args: tuple containing:
-                    y: feature vector
-                    X_f: input variables
+                    y: target vector
+                    X_f: input variables/features
                     n_layers: number of layers in the neural net
                     k: number of classes
                     s_1: number of variables for each input
@@ -145,7 +145,7 @@ def nn_costfunction(x, *args):
     '''
     y, X_f, n_layers, k, s_1, s_2, s_3, lamb = args 
     
-    # create an [m, k] y (feature) array, where the column index 
+    # create an [m, k] y array, where the column index 
     # corresponding to the class of that row is set to 1
     m = y.size
     y_exp = np.zeros([m, k])
@@ -187,8 +187,8 @@ def nn_grad(x, *args):
         inputs: 
             x: vector containing weights
             args: tuple containing:
-                    y: feature vector
-                    X_f: input variables
+                    y: target vector
+                    X_f: input variables/feature
                     n_layers: number of layers in the neural net
                     k: number of classes
                     s_1: number of variables for each input
