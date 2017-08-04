@@ -2,8 +2,8 @@
 published: false
 ---
 
-# Implementing a Neural Network
-The assignments for the Coursera Machine Learning course require you to implement a neural network using the feedfoward and backpropagation algorithms.  I didn't want to submit the assignments in matlab/octave, so I decided just to write them up in Python and post as a blog post.
+# Building a Neural Network
+The assignments for the Coursera Machine Learning course require you to implement a neural network using the feedfoward and backpropagation algorithms.  I didn't want to submit the assignments in matlab/octave, so I decided just to write them up in Python and post as a blog post.  Github markdown can't seem to process latex commmands, so the full notebook (containg maths!) this post was based on can be found here . 
 
 ```python
 import numpy as np
