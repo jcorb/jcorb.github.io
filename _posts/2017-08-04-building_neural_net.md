@@ -2,7 +2,8 @@
 published: false
 ---
 
-
+# Implementing a Neural Network
+The assignments for the Coursera Machine Learning course require you to implement a neural network using the feedfoward and backpropagation algorithms.  I didn't want to submit the assignments in matlab/octave, so I decided just to write them up in Python and post as a blog post.
 
 ```python
 import numpy as np
@@ -12,65 +13,6 @@ from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split
 from scipy.optimize import fmin_cg
 ```
-
-
-```python
-def draw_neural_net(ax, left, right, bottom, top, layer_sizes, labels=False):
-    '''
-    Draw a neural network cartoon using matplotilb.
-    
-    :usage:
-        >>> fig = plt.figure(figsize=(12, 12))
-        >>> draw_neural_net(fig.gca(), .1, .9, .1, .9, [4, 7, 2])
-    
-    :parameters:
-        - ax : matplotlib.axes.AxesSubplot
-            The axes on which to plot the cartoon (get e.g. by plt.gca())
-        - left : float
-            The center of the leftmost node(s) will be placed here
-        - right : float
-            The center of the rightmost node(s) will be placed here
-        - bottom : float
-            The center of the bottommost node(s) will be placed here
-        - top : float
-            The center of the topmost node(s) will be placed here
-        - layer_sizes : list of int
-            List of layer sizes, including input and output dimensionality
-    '''
-    n_layers = len(layer_sizes)
-    v_spacing = (top - bottom)/float(max(layer_sizes))
-    h_spacing = (right - left)/float(len(layer_sizes) - 1)
-    # Nodes
-    for n, layer_size in enumerate(layer_sizes):
-        layer_top = v_spacing*(layer_size - 1)/2. + (top + bottom)/2.
-        for m in xrange(layer_size):
-            circle = plt.Circle((n*h_spacing + left, layer_top - m*v_spacing), v_spacing/4.,
-                                color='w', ec='k', zorder=4)
-            ax.add_artist(circle)
-            if labels:
-                sub = str(m+1)
-                if n == 0:
-                    ax.text(n*h_spacing + left, layer_top - m*v_spacing, 
-                            r"$x_{:d}$".format(m+1), 
-                        ha='center', va='center', zorder=5)
-                else:
-                    sup = '('+ str(n+1) +')'                    
-                    ax.text(n*h_spacing + left, layer_top - m*v_spacing, 
-                            r"$a^{:d}_{:d}$".format(n+1, m+1), 
-                        ha='center', va='center', zorder=5)
-    # Edges
-    for n, (layer_size_a, layer_size_b) in enumerate(zip(layer_sizes[:-1], layer_sizes[1:])):
-        layer_top_a = v_spacing*(layer_size_a - 1)/2. + (top + bottom)/2.
-        layer_top_b = v_spacing*(layer_size_b - 1)/2. + (top + bottom)/2.
-        for m in xrange(layer_size_a):
-            for o in xrange(layer_size_b):
-                line = plt.Line2D([n*h_spacing + left, (n + 1)*h_spacing + left],
-                                  [layer_top_a - m*v_spacing, layer_top_b - o*v_spacing], c='k')
-                ax.add_artist(line)
-```
-
-# Implementing a Neural Network
-The assignments for the Coursera Machine Learning course require you to implement a neural network using the feedfoward and backpropagation algorithms.  I didn't want to submit the assignments in matlab/octave, so I decided just to write them up in Python and post as a blog post.
 
 ## The data
 The dataset was provided as part of the assignment, essentially it is a number of greyscale images of handwritten digits (0-9), along with the correct classification for that image.  The images look like this: 
@@ -97,43 +39,14 @@ for i in np.random.randint(0, 3000, 25):
 ```
 
 
-![png](output_5_0.png)
+![png](../_images/nn_images.png)
 
 
 ## The neural network
-The network I am using for this example consists of 3 layers - an input layer, an output layer, and one hidden layer.  The input layer consists of 400 input nodes (each pixel in an image, and there is actually 401 inputs when the bias, $x_0=1$, term is included).  I'm using 25 nodes (or neurons) in the hidden layer (this also gets a bias term added, $a_0^{(2)}=1$), and the output layer consists of 10 nodes - one for each of the classes.
+The network I am using for this example consists of 3 layers - an input layer, an output layer, and one hidden layer.  The input layer consists of 400 input nodes (each pixel in an image, and there is actually 401 inputs when the bias, `x_0=1`, term is included).  I'm using 25 nodes (or neurons) in the hidden layer (this also gets a bias term added, `a_0^(2)=1`), and the output layer consists of 10 nodes - one for each of the classes.
 
 ### Feed-forward
-The feed-forward calculation takes the inputs values, and applies the activation function (in this case the sigmoid) using the provided weights ($\Theta$).  These values are then "fed-forward", used as the inputs to the next activation layer.  If we have a simple neural net, consisting of 3 layers with sizes 3, 3, 1 such as this: 
-
-
-```python
-fig, ax = plt.subplots(1,1)
-ax.axis('off')
-draw_neural_net(ax, .1, .9, .1, .9, [3, 3, 1], labels=True)
-```
-
-
-![png](output_7_0.png)
-
-
-Then we can calculate the values:
-
-$$
-a^2_1 = g(\Theta^1_{10}x_0 + \Theta^1_{11}x_1 + \Theta^1_{12}x_2 + \Theta^1_{13}x_3)
-$$
-$$
-a^2_2 = g(\Theta^1_{20}x_0 + \Theta^1_{21}x_1 + \Theta^1_{22}x_2 + \Theta^1_{23}x_3)
-$$
-$$
-a^2_3 = g(\Theta^1_{30}x_0 + \Theta^1_{31}x_1 + \Theta^1_{32}x_2 + \Theta^1_{33}x_3)
-$$
-and,
-$$
-a^3_1 = h_\Theta(x) = g(\Theta^2_{10}a^2_0 + \Theta^2_{11}a^2_1 + \Theta^2_{12}a^2_2 + \Theta^2_{13}a^2_3)
-$$
-
-Where $\Theta^l$ for $l=1,2$ are the weights mapping from layer $l$ to $l+1$ and $g(z)$ is the activation function (the sigmoid function).  This can be vectorised fairly easily. Generally, if $a^{(l)} = [a^{(l)}_0, a^{(l)}_1,..., a_{s_j}^{(l)}]$ and $z^{(l)} = [z^{(l)}_1,..., z_{s_l}^{(l)}]$, $a^{(l)} = g(z^{(l)})$, where $z^{(l)} = \Theta^{(l-1)}a^{(l-1)}$.  This is implemented in the `feedforward()` function below.
+The feed-forward calculation takes the inputs values, and applies the activation function (in this case the sigmoid) using the provided weights (`Theta1` and `Theta2`).  These values are then "fed-forward", used as the inputs to the next activation layer. This is implemented in the `feedforward()` function below.
 
 
 ```python
@@ -203,13 +116,11 @@ def feedforward(X, n_layers, theta=None):
 ```
 
 ### Back-propagation
-In order for the neural net to "learn" the optimal weights (or parameters, $\Theta$) for the classification, we need to minimise the cost function over $\Theta$.  To do this we need the cost function, $J(\Theta)$, and its gradient, $\frac{\partial J(\Theta)}{\partial \Theta_{ij}}$ 
+In order for the neural net to "learn" the optimal weights (or parameters, `Theta`) for the classification, we need to minimise the cost function over `Theta`.  To do this we need the cost function and its gradient. 
+
 #### Cost function
 
-The cost function we're using for this neural network is similar to that for the logistic regression, with the addition of a sum over the number of classes, $k$.
-$$
-J(\theta) = \frac{-1}{m}[\sum^m_{i=1} \sum^K_{k=1} [y_k^{(i)} log(h_{\theta}(x^{(i)})_k) - (1-y_k^{(i)}) log(1 - h_{\theta}(x^{(i)})_k)] + \frac{\lambda}{2m} \sum^{L-1}_{l=1} \sum^{S_1}_{i=1} \sum^{S_{1+1}}_{j=1}(\Theta_{ji}^l)^2
-$$
+The cost function we're using for this neural network is similar to that for the logistic regression, with the addition of a sum over the number of classes.
 
 This is implemented in the `nn_costfunction()` function below.
 
@@ -266,72 +177,6 @@ def nn_costfunction(x, *args):
 
 ####  Gradient
 The gradient is calculated via the method of back-propagation.  The basic idea behind this approach is that the error between the actual values and the predicted values (as determined by the cost function) is propagated back through the neural network, starting from the final layer.  The weight connecting each node (or neuron) is assigned a portion of the error, based upon the gradient of the cost function.  
-
-Starting at the final layer ($l=L=3$ in this case), we can write (via the chain-rule):
-
-$$
-\frac{\partial J(\Theta)}{\partial \Theta^{(L-1)}} = 
-\frac{\partial J(\Theta)}{\partial a^{(L)}} 
-\frac{\partial a^{(L)}}{\partial z^{(L)}} 
-\frac{\partial z^{(L)}}{\partial \Theta^{(L-1)}}
-$$
-
-and for the second layer (the hidden layer, $l=2$):
-
-
-$$
-\frac{\partial J(\Theta)}{\partial \Theta^{(L-2)}} = 
-\frac{\partial J(\Theta)}{\partial a^{(L)}} 
-\frac{\partial a^{(L)}}{\partial z^{(L)}} 
-\frac{\partial z^{(L)}}{\partial a^{(L-1)}}
-\frac{\partial a^{(L-1)}}{\partial z^{(L-1)}}
-\frac{\partial z^{(L-1)}}{\partial \Theta^{(L-2)}}
-$$
-
-Generally, 
-
-$$
-\frac{\partial z^{(l)}}{\partial \Theta^{(l-1)}} = \frac{\partial (\Theta^{(l-1)}a^{(l-1)})}{\partial \Theta^{(l-1)}} = a^{(l-1)}
-$$
-
-and we set
-
-$$
-\frac{\partial J(\Theta)}{\partial a^{(L)}} 
-\frac{\partial a^{(L)}}{\partial z^{(L)}}  = \delta^{(L)}
-$$
-
-and then
-$$
-\delta^{(L)} 
-\frac{\partial z^{(L)}}{\partial a^{(L-1)}}
-\frac{\partial a^{(L-1)}}{\partial z^{(L-1)}} = \delta^{(L-1)}
-$$
-
-Given that $a = g(z)$ and, $\frac{\partial a}{\partial z} = a(1-a)$, $\delta^{(L)}$ reduces (via some calculus and substitutions) to:
-$$
-\delta^{(L)} = a^{(L)} - y        
-$$
-
-and, as 
-
-$$
-\frac{\partial z^{(l)}}{\partial a^{(l-1)}} = \frac{\partial (\Theta^{(l-1)}a^{(l-1)})}{\partial a^{(l-1)}} = \Theta^{(l-1)}
-$$
-
-$\delta^{(L-1)}$ reduces to:
-$$
-\delta^{(L-1)} = \delta^{(L)}\Theta^{(L-1)} a^{(L-1)}(1-a^{(L-1)})
-$$
-
-So, putting it all together we get (for $L=3$),
-$$
-\frac{\partial J(\Theta)}{\partial \Theta^{(2)}} = \delta^{(3)}a^{(2)}
-$$
-and,
-$$
-\frac{\partial J(\Theta)}{\partial \Theta^{(1)}} = \delta^{(2)}a^{(1)}
-$$
 
 This is implemented in `nn_grad()` below.  This has not been optimised in anyway (pretty sure it can be vectorized to remove the loop), but it works and gives a good idea of what the algorithm is doing.
 
@@ -458,7 +303,7 @@ theta_out = fmin_cg(nn_costfunction, x, fprime=nn_grad, args=args, maxiter=400)
              Gradient evaluations: 1349
 
 
-The minimisation function returns the optimal $\Theta$ arrays, we can then take those values and feed them through the neural network to get $h(\Theta)_x$, our predicted classification. 
+The minimisation function returns the optimal `Theta1` and `Theta2` arrays, we can then take those values and feed them through the neural network to get `h_Theta_x`, our predicted classification. 
 
 
 ```python
@@ -467,10 +312,7 @@ a_outs = feedforward(X_test, n_layers=n_layers, theta=[Theta1, Theta2])
 h_theta_x = a_outs[1]
 #find the most-likely class (maximum value in row), adds 1 because index 0 is class 1, not class 0.
 y_pred = np.argmax(h_theta_x, axis=1) + 1 
-```
 
-
-```python
 print 'Agreement rate {0:2.2f}%'.format( 100.0*np.sum(y_test==y_pred)/float(y_test.size))
 print 'Confusion matrix:'
 confusion_matrix(y_test, y_pred)
@@ -478,10 +320,6 @@ confusion_matrix(y_test, y_pred)
 
     Agreement rate 92.80%
     Confusion matrix:
-
-
-
-
 
     array([[101,   1,   0,   0,   3,   0,   0,   2,   0,   0],
            [  1,  98,   0,   0,   0,   2,   1,   3,   1,   0],
@@ -496,5 +334,5 @@ confusion_matrix(y_test, y_pred)
 
 
 
-This shows we get a ~93% agreement between the predicted and actual classifications.  Its OK agreement, it might be possible to improve the agreement by increasing the number of neurons, layers, playing with the regularisation value, and running it for more iterations.  But it has been interesting building the neural network, and has given me a goodinsight into the mechanics of a basic neural network.     
+This shows we get a ~93% agreement between the predicted and actual classifications.  Its OK agreement, it might be possible to improve the agreement by increasing the number of neurons, layers, playing with the regularisation value, and running it for more iterations.  But it has been interesting building the neural network, and has given me a good insight into the mechanics of a basic neural network.     
 
