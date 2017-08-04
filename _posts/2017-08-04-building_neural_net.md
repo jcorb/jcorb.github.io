@@ -26,10 +26,6 @@ y = np.squeeze(mat_in['y'])
 # Split into training and testing datasets
 X_train, X_test, y_train, y_test = train_test_split(X_in, y, test_size=0.2)
 
-```
-
-
-```python
 fig,ax = plt.subplots(5,5, figsize=(5,5))
 axs = iter(np.ravel(ax))
 for i in np.random.randint(0, 3000, 25):
@@ -39,7 +35,7 @@ for i in np.random.randint(0, 3000, 25):
 ```
 
 
-![png](../_images/nn_images.png)
+![png](../_images/output_5_0.png)
 
 
 ## The neural network
