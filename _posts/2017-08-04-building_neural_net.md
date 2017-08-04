@@ -39,7 +39,7 @@ for i in np.random.randint(0, 3000, 25):
 ```
 
 
-![](../_images/output_5_0.png)
+![](../images/output_5_0.png)
 
 
 ## The neural network
