@@ -1,4 +1,7 @@
 ---
+layout: post
+title: 'Coursera Machine Learing'
+author: jcorb
 published: true
 ---
 ## Coursera Machine Learning
