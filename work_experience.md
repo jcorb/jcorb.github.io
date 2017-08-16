@@ -8,7 +8,7 @@ For the past six and a half years I have been part of an algorithm development t
 
 ### Key Achievements :
 * Completed development of a new edition of radiance-to-flux inversion algorithms over snow and ice scenes.  These have been implemented operationally in the latest edition of the publicly  available dataset.  The algorithms showed significantly improved accuracy over the previous edition.  In order to develop them I worked with a large database of measurements, applying both knowledge of the physical process underlying the measurements and knowledge of statistics.  The details and results of the new algorithms were presented at international conferences and published in peer-review literature.  
-  * *Skills: physics, statistics, Python, Fortran, collaboration, communication, visualisation*. 
+  * #### *Skills: physics, statistics, Python, Fortran, collaboration, communication, visualisation*. 
 
 
 
