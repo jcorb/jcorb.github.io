@@ -13,17 +13,17 @@ For the past six and a half years I have been part of an algorithm development t
 
 
 * Performed a comparison between the time-series of radiance measurements from multiple satellites.  In order to determine the stability of measurements over time, I used a regression based approach to compare how the radiances measured by three different instruments varied relative to one-another over 15 years.  This involved colocating and merging the measurements, developing a robust analysis approach that minimized noise, and processing 15 years of  high temporal resolution data.  The results of this analysis were presented at  an international conference and published in a peer-reviewed journal.  
-  * *Skills: statistics, Python, Fortran, data-merging, data-cleaning, communication, visualisation.*
+  * #### *Skills: statistics, Python, Fortran, data-merging, data-cleaning, communication, visualisation.*
  
 
 
 * Assisted in leading the planning, execution, and analysis of an airborne field campaign.  Prior to the campaign I took a lead role in designing a set of experiments that would allow us to compare measurements taken from an aircraft to those taken from a satellite.  This involved performing simulations of the experiment using existing datasets and deciding on an optimal strategy.  During the campaign I ensured that our experiments were executed as planned.  Post-campaign I have taken a lead role in analyzing the relevant datasets produced from the field campaign.  This has involved merging a number of disparate, and noisy datasets and developing and refining a robust analysis strategy.  Results of this analysis have been presented at international conferences.  As part of the science team for this project I was awarded a NASA Team Achievement Award.
-  * *Skills: collaboration, decision-making, simulation, statistics, Python, Fortran, data-merging, data-cleaning, communication, visualisation.*
+  * #### *Skills: collaboration, decision-making, simulation, statistics, Python, Fortran, data-merging, data-cleaning, communication, visualisation.*
  
  
  
 * Participated in the development of latest edition of the EBAF dataset.  This is the highest visibility data product produced by the CERES team and is widely used by researchers around the world.  My role was to assist in developing, testing,  and implementing a set of narrowband-to-broadband regression algorithms that are used in the operational production.  I have also been involved in the management of the development process, participating in weekly meetings to determine progress and direction as well as performing ad-hoc analyses as required to test the accuracy of the data product.  
-  * *Skills: collaboration, decision-making, statistics, Python, Fortran, data-merging, data-cleaning, communication, visualisation.*
+  * #### *Skills: collaboration, decision-making, statistics, Python, Fortran, data-merging, data-cleaning, communication, visualisation.*
 
 
 ## Tutor, Physics Department, University of Auckland — 2008 - 2010
