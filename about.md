@@ -4,7 +4,7 @@ published: true
 ---
 # About me
 
-For the past 6 1/2 years I was a Research Scientist in the Climate Science Branch at NASA Langley.   I’m back home in NZ, on the look-out for new opportunities in data analytics/visualisation/remote sensing/applied physics.   While at NASA I was been working on the [CERES](https://ceres.larc.nasa.gov) project.  My role was to develop algorithms that convert the satellite measured radiance into a scientifcally (and increasingly, industrially) useful irradiance, focusing on the polar regions.  I have also been invloved in other areas of the satellite data process, including calibration and validation of the radiances, validation of the irradiances, and development of temporally and spatially averaged datasets.  This role required in-depth knowledge of physics, statistics, maths, and the programming skills needed to make it all happen.
+For the past 6 1/2 years I was a Research Scientist in the Climate Science Branch at NASA Langley.   I’m back home in NZ, on the look-out for new opportunities in data analytics/visualisation/remote sensing/applied physics.   While at NASA I was working on the [CERES](https://ceres.larc.nasa.gov) project.  My role was to develop algorithms that convert the satellite measured radiance into a scientifcally (and increasingly, industrially) useful irradiance, focusing on the polar regions.  I have also been invloved in other areas of the satellite data process, including calibration and validation of the radiances, validation of the irradiances, and development of temporally and spatially averaged datasets.  This role required in-depth knowledge of physics, statistics, maths, and the programming skills needed to make it all happen.
 
 Some key skills I think you should know about:
 
