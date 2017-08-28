@@ -21,13 +21,10 @@ In order to apply the classifier to new examples, we need a way of getting new e
 
 ### Did it work?
 
-Sometimes!
+Sometimes!                              |  Sometimes it doesn't...
+:--------------------------------------:|:--------------------------------------:
+![](../images/mnist_correct.png?s=200)  |  ![](../images/mnist_incorrect.png?s=200)
 
-![](../images/mnist_correct.png?s=200)
-
-Sometimes it doesn't...
-
-![](../images/mnist_incorrect.png?s=200)
 
 Its interesting this failed for what looks like an easy example.  This might be able to be fixed by improving the accuracy of the classifier, but it also might be that the input is too far removed from the training examples.  A better method of creating new images might lead to more consistent results.
 
