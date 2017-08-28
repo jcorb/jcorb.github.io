@@ -1,6 +1,9 @@
-publihed - false
-
-## Interactive MNIST Classifier
+---
+layout: post
+title: 'Interactive MNIST Classifier'
+author: jcorb
+published: false
+---
 
 I have been playing around with the TensorFlow library and wanted to see if I could build an "operational" machine learning classifier.  The idea is to train a classifier on a dataset, then build a tool that can apply the classifier to new examples.  To do this I am using the MNIST digits dataset - a widely used machine learning dataset for classifying hand-drawn digits.
 
